@@ -2,11 +2,11 @@
   description = "flora";
   inputs = {
     flake-utils = { url = "github:numtide/flake-utils"; };
-    horizon-platform = { url = "git+https://gitlab.homotopic.tech/horizon/horizon-platform"; };
+    horizon-platform = { url = "git+https://gitlab.homotopic.tech/horizon/horizon-platform?ref=darwin"; };
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
   outputs = inputs@{ self, flake-utils, horizon-platform, nixpkgs, ... }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+    flake-utils.lib.eachSystem [ "aarch64-darwin" "x86_64-linux" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         hsPkgs = with pkgs.haskell.lib;
