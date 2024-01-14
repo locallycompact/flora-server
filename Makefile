@@ -49,6 +49,8 @@ db-provision: ## Create categories and repositories
 			--description "Central package repository"
 	@cabal run -- flora-cli provision-repository --name "cardano" --url https://input-output-hk.github.io/cardano-haskell-packages \
 			--description "Packages of the Cardano project"
+	@cabal run -- flora-cli provision-repository --name "horizon" --url https://packages.horizon-haskell.net \
+			--description "Packages published through Horizon Haskell"
 
 db-provision-test-packages: ## Load development data in the database
 	@cabal run -- flora-cli provision test-packages
